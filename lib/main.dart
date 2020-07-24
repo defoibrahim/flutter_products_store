@@ -1,49 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'pages/homePage.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
+void main() {
+  runApp(MyApp());
 }
 
-class _MyAppState extends State<MyApp> {
-  List<String> _products = ['food'];
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // TODO: implement build
     return MaterialApp(
-        home: Scaffold(
-      appBar: AppBar(
-        title: Text("demo app"),
-      ),
-      body: Column(
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.all(10.0),
-            child: RaisedButton(
-              child: Text("Add product"),
-              onPressed: () {
-                setState(() {
-                  _products.add("my Best food");
-                });
-              },
-            ),
-          ),
-          Column(
-            children: _products
-                .map((element) => Card(
-                      child: Column(
-                        children: <Widget>[
-                          Image.asset("assets/food.jpg"),
-                          Text(element),
-                        ],
-                      ),
-                    ))
-                .toList(),
-          ),
-        ],
-      ),
-    ));
+      theme: ThemeData(primarySwatch: Colors.deepOrange),
+      home: HomePage(),
+    );
   }
 }
