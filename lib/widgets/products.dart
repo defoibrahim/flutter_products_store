@@ -8,6 +8,25 @@ class Products extends StatelessWidget {
 
   Products(this.products, {this.deleteProduct});
 
+  @override
+  Widget build(BuildContext context) {
+    return _buildProductList();
+  }
+
+  Widget _buildProductList() {
+    Widget productCard;
+    if (products.length > 0) {
+      productCard = ListView.builder(
+        itemBuilder: _builderProductItem,
+        itemCount: products.length,
+      );
+    } else {
+      productCard = Center(child: Text("No product found , add some"));
+    }
+    print(productCard);
+    return productCard;
+  }
+
   Widget _builderProductItem(BuildContext context, int index) {
     return Card(
       child: Column(
@@ -38,24 +57,5 @@ class Products extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  Widget _buildProductList() {
-    Widget productCard;
-    if (products.length > 0) {
-      productCard = ListView.builder(
-        itemBuilder: _builderProductItem,
-        itemCount: products.length,
-      );
-    } else {
-      productCard = Center(child: Text("No product found , add some"));
-    }
-    print(productCard);
-    return productCard;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return _buildProductList();
   }
 }

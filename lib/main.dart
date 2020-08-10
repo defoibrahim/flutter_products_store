@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'pages/homePage.dart';
+import 'pages/auth.dart';
 
 void main() {
   runApp(MyApp());
+
+  debugPaintBaselinesEnabled = false;
+  debugPaintSizeEnabled = false;
 }
 
 class MyApp extends StatelessWidget {
@@ -12,7 +16,7 @@ class MyApp extends StatelessWidget {
     // TODO: implement build
     return MaterialApp(
       theme: ThemeData(primarySwatch: Colors.deepOrange),
-      home: HomePage(),
+      home: AuthPage(),
     );
   }
 }
