@@ -10,6 +10,7 @@ class Products extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("****" + products.length.toString());
     return _buildProductList();
   }
 
@@ -23,7 +24,7 @@ class Products extends StatelessWidget {
     } else {
       productCard = Center(child: Text("No product found , add some"));
     }
-    print(productCard);
+
     return productCard;
   }
 
@@ -38,16 +39,11 @@ class Products extends StatelessWidget {
             children: <Widget>[
               FlatButton(
                 child: Text("Details"),
-                onPressed: () => Navigator.push<bool>(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => ProductDetails(
-                      title: products[index]['title'],
-                      ImageUrl: products[index]['imageUrl'],
-                    ),
-                  ),
-                ).then((bool value) {
+                onPressed: () => Navigator.pushNamed<bool>(
+                        context, '/product/' + index.toString())
+                    .then((bool value) {
                   if (value) {
+                    print("#######" + index.toString());
                     deleteProduct(index);
                   }
                 }),

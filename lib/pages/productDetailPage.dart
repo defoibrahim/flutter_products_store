@@ -9,6 +9,33 @@ class ProductDetails extends StatelessWidget {
   final isDeleted = false;
 
   ProductDetails({this.products, this.title, this.ImageUrl});
+
+  _showWearningDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text("Are you sure ?"),
+            content: Text("This action can't be undone"),
+            actions: <Widget>[
+              FlatButton(
+                child: Text("Cancel"),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+              FlatButton(
+                child: Text("Continue"),
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.pop(context, true);
+                },
+              )
+            ],
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -32,9 +59,9 @@ class ProductDetails extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: RaisedButton(
-                color: Colors.deepOrange,
+                color: Theme.of(context).accentColor,
                 child: Text("Delete"),
-                onPressed: () => Navigator.pop(context, true),
+                onPressed: () => _showWearningDialog(context),
               ),
             )
           ],
