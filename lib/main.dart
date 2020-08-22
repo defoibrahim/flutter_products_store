@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:productsstore/pages/auth.dart';
 import 'package:productsstore/pages/productDetailPage.dart';
 import './pages/product_create.dart';
 import './pages/product_list.dart';
@@ -40,9 +41,9 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         theme: ThemeData(
             primarySwatch: Colors.deepOrange, accentColor: Colors.deepPurple),
-//      home: HomePage(_products, _addProduct, _deleteProduct),
+        home: AuthPage(),
         routes: {
-          '/': (BuildContext context) => HomePage(_products),
+//          '/': (BuildContext context) => HomePage(_products),
           '/admin': (BuildContext context) =>
               ProductsAdminPage(_addProduct, _deleteProduct),
 //          '/create': (BuildContext context) => ProductCreatePage(),

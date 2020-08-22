@@ -9,9 +9,9 @@ class ProductCreatePage extends StatefulWidget {
 }
 
 class _ProductCreatePageState extends State<ProductCreatePage> {
-  String titleMsg = '';
-  double price = 0;
-  String desc = '';
+  String _titleMsg = '';
+  double _price = 0;
+  String _desc = '';
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +22,7 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
             decoration: InputDecoration(labelText: 'Product title'),
             onChanged: (String value) {
               setState(() {
-                titleMsg = value;
+                _titleMsg = value;
               });
             },
           ),
@@ -31,7 +31,7 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
             decoration: InputDecoration(labelText: 'Product price'),
             onChanged: (String value) {
               setState(() {
-                price = double.parse(value);
+                _price = double.parse(value);
               });
             },
           ),
@@ -40,21 +40,26 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
             maxLines: 3,
             onChanged: (String value) {
               setState(() {
-                desc = value;
+                _desc = value;
               });
             },
+          ),
+          SizedBox(
+            height: 10.0,
           ),
           RaisedButton(
             onPressed: () {
               final Map<String, dynamic> product = {
-                'title': titleMsg,
-                'price': price,
-                'description': desc,
+                'title': _titleMsg,
+                'price': _price,
+                'description': _desc,
                 'imageUrl': 'assets/food.jpg',
               };
               widget.addProduct(product);
+              Navigator.pushReplacementNamed(context, '/');
             },
-            color: Colors.orange,
+            color: Theme.of(context).accentColor,
+            textColor: Colors.white,
             child: Text("Save"),
           )
         ],
