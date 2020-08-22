@@ -55,7 +55,9 @@ class ProductDetails extends StatelessWidget {
             Image.asset(ImageUrl),
             Padding(
               padding: const EdgeInsets.all(10.0),
-              child: Text("this is the  Details page"),
+              child: Text(
+                "this is the  Details page",
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(10.0),

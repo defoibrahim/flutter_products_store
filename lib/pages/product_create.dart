@@ -56,7 +56,7 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
                 'imageUrl': 'assets/food.jpg',
               };
               widget.addProduct(product);
-              Navigator.pushReplacementNamed(context, '/');
+              Navigator.pushReplacementNamed(context, '/products');
             },
             color: Theme.of(context).accentColor,
             textColor: Colors.white,
