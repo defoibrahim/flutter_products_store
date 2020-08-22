@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:productsstore/pages/productDetailPage.dart';
-import 'package:productsstore/widgets/products_manager.dart';
+import 'file:///C:/Users/defo%20Ibrahim/AndroidFlutterProjects/products_store/lib/products_manager.dart';
 
 class Products extends StatelessWidget {
-  final List<Map<String, String>> products;
-  final Function deleteProduct;
+  final List<Map<String, dynamic>> products;
 
-  Products(this.products, {this.deleteProduct});
+  Products(this.products);
 
   @override
   Widget build(BuildContext context) {
-    print("****" + products.length.toString());
+    print("****F ***" + products.length.toString());
     return _buildProductList();
   }
 
@@ -29,6 +28,7 @@ class Products extends StatelessWidget {
   }
 
   Widget _builderProductItem(BuildContext context, int index) {
+    print("****E ***" + products.length.toString());
     return Card(
       child: Column(
         children: <Widget>[
@@ -40,13 +40,7 @@ class Products extends StatelessWidget {
               FlatButton(
                 child: Text("Details"),
                 onPressed: () => Navigator.pushNamed<bool>(
-                        context, '/product/' + index.toString())
-                    .then((bool value) {
-                  if (value) {
-                    print("#######" + index.toString());
-                    deleteProduct(index);
-                  }
-                }),
+                    context, '/product/' + index.toString()),
               )
             ],
           )

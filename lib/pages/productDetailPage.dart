@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'dart:async';
-import 'package:productsstore/widgets/products.dart';
+import 'file:///C:/Users/defo%20Ibrahim/AndroidFlutterProjects/products_store/lib/products.dart';
 
 class ProductDetails extends StatelessWidget {
   Products products;
@@ -54,7 +55,7 @@ class ProductDetails extends StatelessWidget {
             Image.asset(ImageUrl),
             Padding(
               padding: const EdgeInsets.all(10.0),
-              child: Text("this is Details page"),
+              child: Text("this is the  Details page"),
             ),
             Padding(
               padding: const EdgeInsets.all(10.0),
