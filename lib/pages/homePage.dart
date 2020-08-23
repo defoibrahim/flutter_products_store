@@ -20,6 +20,7 @@ class HomePage extends StatelessWidget {
               title: Text("choose"),
             ),
             ListTile(
+              leading: Icon(Icons.mode_edit),
               title: Text("Manage product"),
               onTap: () {
                 Navigator.pushReplacementNamed(context, '/admin');
@@ -30,6 +31,15 @@ class HomePage extends StatelessWidget {
       ),
       appBar: AppBar(
         title: Text("EasyList"),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.favorite,
+              color: Colors.white,
+            ),
+            onPressed: () {},
+          )
+        ],
       ),
       body: ProductManager(products),
     );
